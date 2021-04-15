@@ -25,7 +25,7 @@ public class Deck {
             switch (value)
             {
                 case 0:
-                    System.out.println("Adiós!");
+                    System.out.println("Gracias por jugar");
                     break;
                 case 1:  deck.shuffle();
                     break;
@@ -35,7 +35,7 @@ public class Deck {
                     break;
                 case 4:  deck.hand();
                     break;
-                default: System.out.println("Gracias por jugar");
+                default: System.out.println("Número no valido");
             }
         } while (value != 0);
     }
