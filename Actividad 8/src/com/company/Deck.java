@@ -8,11 +8,36 @@ public class Deck {
         //Crear array Deck y llamar los métodos 
         Deck deck = new Deck();
         deck.create();
-        deck.shuffle();
-        deck.head();
-        deck.pick();
-        deck.hand();
+        
+     //Se imprime el menu de opciones
+        Scanner scanner = new Scanner(System.in);
+        int value = 5;
+        System.out.println("Bienvenido a Poker!");
+        System.out.println("Selecciona una opción:");
+        System.out.println("1 -> Mezclar deck");
+        System.out.println("2 -> Sacar una carta");
+        System.out.println("3 -> Carta al azar");
+        System.out.println("4 -> Generar una mano de 5 cartas");
+        System.out.println("0 -> Salir");
 
+        do {
+            value = scanner.nextInt();
+            switch (value)
+            {
+                case 0:
+                    System.out.println("Adiós!");
+                    break;
+                case 1:  deck.shuffle();
+                    break;
+                case 2:  deck.head();
+                    break;
+                case 3:  deck.pick();
+                    break;
+                case 4:  deck.hand();
+                    break;
+                default: System.out.println("Gracias por jugar");
+            }
+        } while (value != 0);
     }
 
     //Llenar deck
@@ -34,13 +59,6 @@ public class Deck {
                 z++;
             }
         }
-
-        System.out.println("Deck de "+deck.size()+" cartas para poker");
-        System.out.println();
-        for (Object o : deck) {
-            System.out.println(o);
-        }
-        System.out.println();
     }
 
     //Método Shuffle
