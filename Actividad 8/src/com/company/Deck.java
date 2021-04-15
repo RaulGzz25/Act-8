@@ -8,8 +8,8 @@ public class Deck {
         //Crear array Deck y llamar los métodos 
         Deck deck = new Deck();
         deck.create();
-        
-     //Se imprime el menu de opciones
+
+        //Se imprime el menu de opciones
         Scanner scanner = new Scanner(System.in);
         int value = 5;
         System.out.println("Bienvenido a Poker!");
