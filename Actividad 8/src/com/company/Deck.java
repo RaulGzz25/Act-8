@@ -4,7 +4,7 @@ import java.util.*;
 public class Deck {
     private ArrayList<Object> deck = new ArrayList<>();
 
-    public static void main(String[] args) {
+      public static void main(String[] args) throws Exception {
         //Crear array Deck y llamar los métodos 
         Deck deck = new Deck();
         deck.create();
@@ -68,37 +68,51 @@ public class Deck {
     }
 
     //Método Head
-    public void head(){
-        System.out.println("Primera carta del deck");
-        System.out.println(deck.get(0));
-        deck.remove(0);
-        System.out.println("Quedan: "+deck.size());
+    public void head() throws Exception {
+        try {
+            System.out.println("Primera carta del deck");
+            System.out.println(deck.get(0));
+            deck.remove(0);
+            System.out.println("Quedan: " + deck.size());
+        } catch (Exception e) {
+            System.out.println("Se han agotado las cartas");
+            System.exit(1);
+        }
     }
 
-    //Método Pick
-    public void pick(){
-        int value = (int)((Math.random()*50));
-        System.out.println("Elegir una carta del deck");
-        System.out.println(deck.get(value));
-        deck.remove(value);
-        System.out.println("Quedan: "+deck.size());
-    }
-
-    //Método Hand
-    public void hand(){
-        int i = 50;
-        for(int x = 0; x < 5; x++){
-            int value = (int)((Math.random()*i));
+   //Método Pick
+    public void pick() throws Exception {
+        try {
+            int value = (int) ((Math.random() * 50));
+            System.out.println("Elegir una carta random del deck");
             System.out.println(deck.get(value));
             deck.remove(value);
-            i--;
+            System.out.println("Quedan: " + deck.size());
+        } catch (Exception e) {
+            System.out.println("Se han agotado las cartas");
+            System.exit(1);
         }
-        System.out.println("Quedan: "+deck.size());
     }
-}
+
+     //Método Hand
+    public void hand() throws Exception {
+        try {
+            for (int x = 0; x < 5; x++) {
+                int value = (int) ((Math.random() * deck.size()));
+                System.out.println(deck.get(value));
+                deck.remove(value);
+            }
+            System.out.println("Quedan: " + deck.size());
+        } catch (Exception e) {
+            System.out.println("Se han agotado las cartas");
+            System.exit(1);
+        }
+    }
+
 
 class Card {
     String[] Palo = new String[]{"Tréboles","Corazones","Picas","Diamantes"};
     String[] Color = new String[]{"Rojo","Negro"};
     String[] Valor = new String[]{"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+}
 }
